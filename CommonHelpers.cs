@@ -26,7 +26,6 @@ namespace Utilities
         /// <returns></returns>
         public static string ReplaceSpecialChar(string input)
         {
-
             Regex rgx = new Regex("[^a-zA-Z0-9]");
             input = rgx.Replace(input, "-");
             return input;
@@ -37,14 +36,12 @@ namespace Utilities
         {
             var date = new DateTime(1970, 1, 1, 0, 0, 0, target.Kind);
             var unixTimestamp = System.Convert.ToInt64((target - date).TotalSeconds);
-
             return unixTimestamp;
         }
 
         public static DateTime ConvertToDateTime(this DateTime target, long timestamp)
         {
             var dateTime = new DateTime(1970, 1, 1, 0, 0, 0, target.Kind);
-
             return dateTime.AddSeconds(timestamp);
         }
 
@@ -63,7 +60,6 @@ namespace Utilities
         /// <returns></returns>
         public static DateTime getClientTime(string date, object ClientTimeZoneoffset)
         {
-
             if (ClientTimeZoneoffset != null)
             {
                 string Temp = ClientTimeZoneoffset.ToString().Trim();
@@ -147,7 +143,6 @@ namespace Utilities
             PendingToSent = 1, Sent = 2
         }
 
-
         public static string RemoveSpecialCharacters(string str)
         {
 
@@ -157,7 +152,6 @@ namespace Utilities
                 if ((str[i] >= '0' && str[i] <= '9') || (str[i] >= 'A' && str[i] <= 'z' || (str[i] == '_' || str[i] == ' ')))
                     sb.Append(str[i]);
             }
-
             return sb.ToString();
         }
         /// <summary>
@@ -231,8 +225,6 @@ namespace Utilities
             return isDelete;
         }
 
-
-
         public static string GetShortDescription(string Description)
         {
             string strDesc = string.Empty;
@@ -255,10 +247,8 @@ namespace Utilities
             catch (Exception)
             {
 
-
             }
             return strDesc;
-
         }
 
         public static string GetShortTitle(string Title)
@@ -276,7 +266,6 @@ namespace Utilities
                     {
                         strDesc = Title.Trim();
                     }
-
                 }
                 return strDesc;
             }
@@ -317,6 +306,25 @@ namespace Utilities
 
             Size newSize = new Size(destWidth, destHeight);
             return newSize;
+        }
+        
+        /// <summary>
+        /// Method for Trim string value by checking is null condition
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns>string Value</returns>
+        public static string TrimNull(string value)
+        {
+            string stringValue = null;
+            if (!string.IsNullOrEmpty(value))
+            {
+                stringValue = value.Trim();
+            }
+            else
+            {
+                stringValue = value;
+            }
+            return stringValue;
         }
     }
 
